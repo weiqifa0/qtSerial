@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Widget</class>
+ <widget class="QWidget" name="Widget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1843</width>
+    <height>994</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Widget</string>
+  </property>
+  <widget class="QTextEdit" name="recvTextEdit">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>1831</width>
+     <height>721</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="sendButton">
+   <property name="geometry">
+    <rect>
+     <x>440</x>
+     <y>740</y>
+     <width>181</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>发送</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="sendTextEdit">
+   <property name="geometry">
+    <rect>
+     <x>630</x>
+     <y>740</y>
+     <width>1211</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>微软雅黑</family>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox">
+   <property name="geometry">
+    <rect>
+     <x>650</x>
+     <y>880</y>
+     <width>151</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Hex显示</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_2">
+   <property name="geometry">
+    <rect>
+     <x>830</x>
+     <y>880</y>
+     <width>151</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Hex显示</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_3">
+   <property name="geometry">
+    <rect>
+     <x>1000</x>
+     <y>880</y>
+     <width>181</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>定时发送</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit">
+   <property name="geometry">
+    <rect>
+     <x>1180</x>
+     <y>880</y>
+     <width>91</width>
+     <height>38</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>1000</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>1290</x>
+     <y>880</y>
+     <width>135</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>ms/次</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_4">
+   <property name="geometry">
+    <rect>
+     <x>1400</x>
+     <y>880</y>
+     <width>241</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>保存接收文件</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_5">
+   <property name="geometry">
+    <rect>
+     <x>1640</x>
+     <y>880</y>
+     <width>241</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>加回车换行</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="openPortButton_4">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>820</y>
+     <width>101</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>波特率</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="portComboBox">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>740</y>
+     <width>311</width>
+     <height>61</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="openPortButton">
+   <property name="geometry">
+    <rect>
+     <x>440</x>
+     <y>920</y>
+     <width>181</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>打开</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="openPortButton_2">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>740</y>
+     <width>101</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>刷新</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="baudComboBox">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>820</y>
+     <width>311</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>1500000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>4800</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>9600</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>19200</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>38400</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>57600</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>115200</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>128000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>256000</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QPushButton" name="openPortButton_3">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>890</y>
+     <width>421</width>
+     <height>91</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>更多串口显示</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="clearTextButton">
+   <property name="geometry">
+    <rect>
+     <x>440</x>
+     <y>850</y>
+     <width>181</width>
+     <height>57</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>清除文本框</string>
+   </property>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
