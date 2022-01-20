@@ -22,6 +22,12 @@
      <height>721</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Courier New</family>
+     <pointsize>13</pointsize>
+    </font>
+   </property>
   </widget>
   <widget class="QPushButton" name="sendButton">
    <property name="geometry">
@@ -52,7 +58,7 @@
     </font>
    </property>
   </widget>
-  <widget class="QCheckBox" name="checkBox">
+  <widget class="QCheckBox" name="hexSendCheckBox">
    <property name="geometry">
     <rect>
      <x>650</x>
@@ -62,13 +68,13 @@
     </rect>
    </property>
    <property name="text">
-    <string>Hex显示</string>
+    <string>Hex发送</string>
    </property>
   </widget>
-  <widget class="QCheckBox" name="checkBox_2">
+  <widget class="QCheckBox" name="hexRecvCheckBox">
    <property name="geometry">
     <rect>
-     <x>830</x>
+     <x>810</x>
      <y>880</y>
      <width>151</width>
      <height>34</height>
@@ -81,7 +87,7 @@
   <widget class="QCheckBox" name="checkBox_3">
    <property name="geometry">
     <rect>
-     <x>1000</x>
+     <x>980</x>
      <y>880</y>
      <width>181</width>
      <height>34</height>
@@ -94,7 +100,7 @@
   <widget class="QLineEdit" name="lineEdit">
    <property name="geometry">
     <rect>
-     <x>1180</x>
+     <x>1160</x>
      <y>880</y>
      <width>91</width>
      <height>38</height>
@@ -107,9 +113,9 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>1290</x>
+     <x>1270</x>
      <y>880</y>
-     <width>135</width>
+     <width>91</width>
      <height>30</height>
     </rect>
    </property>
@@ -120,7 +126,7 @@
   <widget class="QCheckBox" name="checkBox_4">
    <property name="geometry">
     <rect>
-     <x>1400</x>
+     <x>1360</x>
      <y>880</y>
      <width>241</width>
      <height>34</height>
@@ -133,14 +139,14 @@
   <widget class="QCheckBox" name="checkBox_5">
    <property name="geometry">
     <rect>
-     <x>1640</x>
+     <x>1590</x>
      <y>880</y>
-     <width>241</width>
+     <width>251</width>
      <height>34</height>
     </rect>
    </property>
    <property name="text">
-    <string>加回车换行</string>
+    <string>发送加回车换行</string>
    </property>
   </widget>
   <widget class="QPushButton" name="openPortButton_4">
@@ -176,10 +182,10 @@
     </rect>
    </property>
    <property name="text">
-    <string>打开</string>
+    <string>打开串口</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="openPortButton_2">
+  <widget class="QPushButton" name="refreshButton">
    <property name="geometry">
     <rect>
      <x>330</x>
@@ -201,11 +207,6 @@
      <height>61</height>
     </rect>
    </property>
-   <item>
-    <property name="text">
-     <string>1500000</string>
-    </property>
-   </item>
    <item>
     <property name="text">
      <string>4800</string>
@@ -244,6 +245,16 @@
    <item>
     <property name="text">
      <string>256000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>921600</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1500000</string>
     </property>
    </item>
   </widget>

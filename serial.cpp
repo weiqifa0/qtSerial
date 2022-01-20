@@ -88,7 +88,7 @@ void Serial::clearReadBuf()
 QByteArray Serial::hexStringToByteArray(QString HexString)
 {
     bool ok;
-    QByteArray ret;
+    QByteArray data;
     HexString = HexString.trimmed();
     HexString = HexString.simplified();
     QStringList sl = HexString.split(" ");
@@ -100,7 +100,7 @@ QByteArray Serial::hexStringToByteArray(QString HexString)
             char c = static_cast<char>(s.toInt(&ok, 16) & 0xFF);
             if(ok)
             {
-                ret.append(c);
+                data.append(c);
             }
             else
             {
@@ -110,5 +110,5 @@ QByteArray Serial::hexStringToByteArray(QString HexString)
         }
     }
 
-    return ret;
+    return data;
 }

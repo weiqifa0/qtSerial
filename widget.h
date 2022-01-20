@@ -34,6 +34,8 @@ private slots:
     void on_sendButton_clicked(); // 发送数据按钮-点击槽函数
     void readSerialData(); // 读取从自定义串口类获得的数据
 
+    void on_refreshButton_clicked();
+
 private:
     Ui::Widget *ui;
 

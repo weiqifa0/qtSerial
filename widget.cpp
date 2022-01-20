@@ -2,6 +2,10 @@
 #include "ui_widget.h"
 #include <QStatusBar.h>
 #include <QLineEdit.h>
+#include <QToolButton.h>
+#include <QMenu.h>
+#include <QAction.h>
+#include <QToolBar.h>
 
 Widget::Widget(QWidget *parent) :
     QWidget(parent),
@@ -23,17 +27,6 @@ Widget::Widget(QWidget *parent) :
 
     // 当下位机中有数据发送过来时就会响应这个槽函数
     connect(m_serial, SIGNAL(readSignal()), this, SLOT(readSerialData()));
-
-    // call memeber fucntion
-    QStatusBar *sb = new QStatusBar();
-    // create widget for Status Bar
-    QLabel *l = new QLabel("Label");
-    QLineEdit *e = new QLineEdit();
-    //add widget to status bar
-    sb->addPermanentWidget(l);
-    sb->addPermanentWidget(e);
-    //output message to Status bar
-    sb->showMessage("Some");
 }
 
 Widget::~Widget()
@@ -71,6 +64,7 @@ void Widget::on_openPortButton_clicked()
 void Widget::on_clearTextButton_clicked()
 {
     ui->recvTextEdit->clear();
+    ui->sendTextEdit->clear();
 }
 
 // 清除发送文本框按钮-点击槽函数
@@ -82,7 +76,12 @@ void Widget::on_clearSendButton_clicked()
 // 发送数据按钮-点击槽函数
 void Widget::on_sendButton_clicked()
 {
-    QByteArray sendData = m_serial->hexStringToByteArray(ui->sendTextEdit->toPlainText());
+    QByteArray sendData;
+    if(ui->hexSendCheckBox->checkState() == false){
+        sendData = ui->sendTextEdit->toPlainText().toLatin1();
+    }else{
+        sendData = m_serial->hexStringToByteArray(ui->sendTextEdit->toPlainText());
+    }
     m_serial->sendData(sendData);
 }
 
@@ -93,9 +92,26 @@ void Widget::readSerialData()
     ui->recvTextEdit->clear();
     ui->recvTextEdit->setText(originStr);
     ui->recvTextEdit->moveCursor(QTextCursor::End); // 在末尾移动光标一格
-    ui->recvTextEdit->insertPlainText(m_serial->getReadBuf().toHex()); // 插入新读取数据（中间以一格空格间隔）
+
+    if(ui->hexRecvCheckBox->checkState()){
+        ui->recvTextEdit->insertPlainText(m_serial->getReadBuf().toHex()); //转换成HEX
+    }else{
+        ui->recvTextEdit->insertPlainText(m_serial->getReadBuf());
+    }
     ui->recvTextEdit->moveCursor(QTextCursor::End); // 在末尾移动光标一格
-    ui->recvTextEdit->insertPlainText(" ");
+    ui->recvTextEdit->insertPlainText("\n");
 
     m_serial->clearReadBuf(); // 读取完后，清空数据缓冲区
+}
+
+void Widget::on_refreshButton_clicked()
+{
+    // 寻找可用串口
+    QStringList serialStrList;
+    serialStrList = m_serial->scanSerial();
+    ui->portComboBox->clear(); //清空当前的串口显示
+    for (int i=0; i<serialStrList.size(); i++)
+    {
+        ui->portComboBox->addItem(serialStrList[i]); // 在comboBox那添加串口号
+    }
 }
