@@ -1,6 +1,6 @@
 # qtSerial
 
-请切换到master分支
+master分支有一个基础例程
 
 # QT软件和资料下载地址
 ```C
