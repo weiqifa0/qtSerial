@@ -25,22 +25,25 @@ serial::serial(QWidget *parent) :
 
     QStatusBar* bar = ui->statusBar; //获取状态栏
     rx_label = new QLabel; //新建标签
-    rx_label->setMinimumSize(150,20); //设置标签最小尺寸
-    rx_label->setFrameShape(QFrame::Box); //设置标签形状
-    rx_label->setFrameShadow(QFrame::Sunken); //设置标签阴影
+    rx_label->setMinimumSize(300,20); //设置标签最小尺寸
+    rx_label->setFrameShape(QFrame::NoFrame); //设置标签形状
+    rx_label->setFrameShadow(QFrame::Plain); //设置标签阴影
     rx_label->setText(tr("RX:0"));
+    rx_label->setStyleSheet("QLabel { color : black; }");
 
     tx_label = new QLabel; //新建标签
-    tx_label->setMinimumSize(150,20); //设置标签最小尺寸
-    tx_label->setFrameShape(QFrame::Box); //设置标签形状
-    tx_label->setFrameShadow(QFrame::Sunken); //设置标签阴影
+    tx_label->setMinimumSize(300,20); //设置标签最小尺寸
+    tx_label->setFrameShape(QFrame::NoFrame); //设置标签形状
+    tx_label->setFrameShadow(QFrame::Plain); //设置标签阴影
     tx_label->setText(tr("TX:0"));
+    tx_label->setStyleSheet("QLabel { color : black; }");
 
     connect_label = new QLabel; //新建标签
-    connect_label->setMinimumSize(150,20); //设置标签最小尺寸
-    connect_label->setFrameShape(QFrame::Box); //设置标签形状
-    connect_label->setFrameShadow(QFrame::Sunken); //设置标签阴影
+    connect_label->setMinimumSize(300,20); //设置标签最小尺寸
+    connect_label->setFrameShape(QFrame::NoFrame); //设置标签形状
+    connect_label->setFrameShadow(QFrame::Plain); //设置标签阴影
     connect_label->setText(tr("串口未连接"));
+    connect_label->setStyleSheet("QLabel { color : black; }");
 
     bar->addWidget(connect_label);
     bar->addWidget(rx_label);
@@ -76,6 +79,7 @@ void serial::on_openPortButton_clicked()
             // 修改按钮名称
             ui->openPortButton->setText(tr("关闭串口"));
             connect_label->setText(tr("串口已打开"));
+            connect_label->setStyleSheet("QLabel { color : green; }");
         }
     }
     else
@@ -88,6 +92,7 @@ void serial::on_openPortButton_clicked()
         // 恢复按钮名称
         ui->openPortButton->setText(tr("打开串口"));
         connect_label->setText(tr("串口已关闭"));
+        connect_label->setStyleSheet("QLabel { color : black; }");
     }
 }
 
@@ -99,6 +104,12 @@ void serial::on_sendButton_clicked()
     }else{
         sendData = m_serial->hexStringToByteArray(ui->sendTextEdit->toPlainText());
     }
+
+    if (sendData <= 0) {
+        ui->recvTextEdit->append(tr("请输入发送指令"));
+        return;
+    }
+
     tx_count += sendData.length();
     tx_label->setText("TX:"+QString::number(tx_count,10));
     m_serial->sendData(sendData);
@@ -119,8 +130,15 @@ void serial::readSerialData()
     }
     rx_count += m_serial->getReadBuf().length();
     rx_label->setText("RX:"+QString::number(tx_count,10));
-    ui->recvTextEdit->moveCursor(QTextCursor::End); // 在末尾移动光标一格
+    //ui->recvTextEdit->moveCursor(QTextCursor::End); // 在末尾移动光标一格
     ui->recvTextEdit->insertPlainText("\n");
 
     m_serial->clearReadBuf(); // 读取完后，清空数据缓冲区
+}
+
+void serial::on_clearTextButton_clicked()
+{
+    ui->recvTextEdit->clear();
+    ui->recvTextEdit->moveCursor(QTextCursor::Start);
+    ui->sendTextEdit->clear();
 }

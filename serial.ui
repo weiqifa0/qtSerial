@@ -80,7 +80,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>更多串口显示</string>
+        <string>更多串口设置</string>
        </property>
       </widget>
       <widget class="QComboBox" name="portComboBox">
@@ -204,11 +204,15 @@
           </sizepolicy>
          </property>
          <property name="text">
-          <string>清除文本框</string>
+          <string>清除显示</string>
          </property>
         </widget>
        </item>
       </layout>
+      <zorder>openPortButton</zorder>
+      <zorder>clearTextButton</zorder>
+      <zorder>refreshButton</zorder>
+      <zorder>openPortButton_3</zorder>
      </widget>
     </item>
     <item row="1" column="2">

@@ -22,6 +22,8 @@ private slots:
     void on_sendButton_clicked();
     void readSerialData();
 
+    void on_clearTextButton_clicked();
+
 private:
     Ui::serial *ui;
     Uartcore *m_serial; // 自定义串口类对象指针
