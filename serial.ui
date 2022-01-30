@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>2114</width>
-    <height>1257</height>
+    <width>1398</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -64,7 +64,7 @@
           </sizepolicy>
          </property>
          <property name="text">
-          <string>刷新</string>
+          <string>Refresh</string>
          </property>
         </widget>
        </item>
@@ -137,7 +137,7 @@
           </sizepolicy>
          </property>
          <property name="text">
-          <string>波特率</string>
+          <string>BaudRate</string>
          </property>
         </widget>
        </item>
@@ -150,7 +150,7 @@
           </sizepolicy>
          </property>
          <property name="text">
-          <string>更多串口设置</string>
+          <string>More Serial Port Setting</string>
          </property>
         </widget>
        </item>
@@ -193,7 +193,7 @@
           </sizepolicy>
          </property>
          <property name="text">
-          <string>打开串口</string>
+          <string>Open Port</string>
          </property>
         </widget>
        </item>
@@ -206,7 +206,7 @@
           </sizepolicy>
          </property>
          <property name="text">
-          <string>清除显示</string>
+          <string>Clear Text</string>
          </property>
         </widget>
        </item>
@@ -277,7 +277,7 @@
           </size>
          </property>
          <property name="text">
-          <string>发送</string>
+          <string>Send</string>
          </property>
         </widget>
        </item>
@@ -312,21 +312,21 @@
        <item row="1" column="0">
         <widget class="QCheckBox" name="hexSendCheckBox">
          <property name="text">
-          <string>Hex发送</string>
+          <string>Hex Send</string>
          </property>
         </widget>
        </item>
        <item row="1" column="1">
         <widget class="QCheckBox" name="hexRecvCheckBox">
          <property name="text">
-          <string>Hex显示</string>
+          <string>Hex Show</string>
          </property>
         </widget>
        </item>
        <item row="1" column="2">
         <widget class="QCheckBox" name="checkBox_3">
          <property name="text">
-          <string>定时发送</string>
+          <string>Timer</string>
          </property>
         </widget>
        </item>
@@ -358,21 +358,21 @@
        <item row="1" column="4">
         <widget class="QLabel" name="label">
          <property name="text">
-          <string>ms/次</string>
+          <string>ms</string>
          </property>
         </widget>
        </item>
        <item row="1" column="5">
         <widget class="QCheckBox" name="checkBox_4">
          <property name="text">
-          <string>保存接收文件</string>
+          <string>Save Files</string>
          </property>
         </widget>
        </item>
        <item row="1" column="6">
         <widget class="QCheckBox" name="checkBox_5">
          <property name="text">
-          <string>发送加回车换行</string>
+          <string>Send with LFCR</string>
          </property>
         </widget>
        </item>
@@ -399,19 +399,49 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>2114</width>
-     <height>28</height>
+     <width>1398</width>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu">
     <property name="title">
-     <string>关于</string>
+     <string>About</string>
     </property>
     <addaction name="separator"/>
+    <addaction name="actionLicences"/>
+    <addaction name="actionDistributers"/>
    </widget>
+   <widget class="QMenu" name="menuMenu_2">
+    <property name="title">
+     <string>Menu</string>
+    </property>
+    <addaction name="actionPreferences"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <addaction name="menuMenu_2"/>
    <addaction name="menu"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionPreferences">
+   <property name="text">
+    <string>Preferences</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionLicences">
+   <property name="text">
+    <string>Licences</string>
+   </property>
+  </action>
+  <action name="actionDistributers">
+   <property name="text">
+    <string>Distributers</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>

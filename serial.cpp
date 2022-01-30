@@ -6,6 +6,7 @@ serial::serial(QWidget *parent) :
     ui(new Ui::serial)
 {
     ui->setupUi(this);
+    ui->retranslateUi(this);
 
     // 初始化串口
     m_serial = new Uartcore;
@@ -28,21 +29,21 @@ serial::serial(QWidget *parent) :
     rx_label->setMinimumSize(300,20); //设置标签最小尺寸
     rx_label->setFrameShape(QFrame::NoFrame); //设置标签形状
     rx_label->setFrameShadow(QFrame::Plain); //设置标签阴影
-    rx_label->setText(tr("RX:0"));
+    rx_label->setText(tr("RX: ")+"0");
     rx_label->setStyleSheet("QLabel { color : black; }");
 
     tx_label = new QLabel; //新建标签
     tx_label->setMinimumSize(300,20); //设置标签最小尺寸
     tx_label->setFrameShape(QFrame::NoFrame); //设置标签形状
     tx_label->setFrameShadow(QFrame::Plain); //设置标签阴影
-    tx_label->setText(tr("TX:0"));
+    tx_label->setText((tr("TX: ") + "0"));
     tx_label->setStyleSheet("QLabel { color : black; }");
 
     connect_label = new QLabel; //新建标签
     connect_label->setMinimumSize(300,20); //设置标签最小尺寸
     connect_label->setFrameShape(QFrame::NoFrame); //设置标签形状
     connect_label->setFrameShadow(QFrame::Plain); //设置标签阴影
-    connect_label->setText(tr("串口未连接"));
+    connect_label->setText(tr("Serial Port not connect"));
     connect_label->setStyleSheet("QLabel { color : black; }");
 
     bar->addWidget(connect_label);
@@ -69,7 +70,7 @@ void serial::on_refreshButton_clicked()
 
 void serial::on_openPortButton_clicked()
 {
-    if(ui->openPortButton->text() == tr("打开串口"))
+    if(ui->openPortButton->text() == tr("Open Port"))
     {
         if(m_serial->open(ui->portComboBox->currentText(), ui->baudComboBox->currentText().toInt()))
         {
@@ -77,8 +78,8 @@ void serial::on_openPortButton_clicked()
             ui->portComboBox->setEnabled(false);
             ui->baudComboBox->setEnabled(false);
             // 修改按钮名称
-            ui->openPortButton->setText(tr("关闭串口"));
-            connect_label->setText(tr("串口已打开"));
+            ui->openPortButton->setText(tr("Close Port"));
+            connect_label->setText(tr("Port already opended"));
             connect_label->setStyleSheet("QLabel { color : green; }");
         }
     }
@@ -90,8 +91,8 @@ void serial::on_openPortButton_clicked()
         ui->portComboBox->setEnabled(true);
         ui->baudComboBox->setEnabled(true);
         // 恢复按钮名称
-        ui->openPortButton->setText(tr("打开串口"));
-        connect_label->setText(tr("串口已关闭"));
+        ui->openPortButton->setText(tr("Open Port"));
+        connect_label->setText(tr("Port already Closed"));
         connect_label->setStyleSheet("QLabel { color : black; }");
     }
 }
@@ -106,7 +107,7 @@ void serial::on_sendButton_clicked()
     }
 
     if (sendData <= 0) {
-        ui->recvTextEdit->append(tr("请输入发送指令"));
+        ui->recvTextEdit->append(tr("Please Send Input Commands"));
         return;
     }
 
