@@ -24,6 +24,10 @@ private slots:
 
     void on_clearTextButton_clicked();
 
+    void on_actionExit_triggered();
+
+    void on_openPortButton_3_clicked();
+
 private:
     Ui::serial *ui;
     Uartcore *m_serial; // 自定义串口类对象指针

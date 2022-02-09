@@ -15,12 +15,15 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         serial.cpp \
-    uartcore.cpp
+    uartcore.cpp \
+    setting.cpp
 
 HEADERS  += serial.h \
-    uartcore.h
+    uartcore.h \
+    setting.h
 
-FORMS    += serial.ui
+FORMS    += serial.ui \
+    setting.ui
 
 TRANSLATIONS += \
     MySerial_zh_CN.ts

@@ -1,5 +1,6 @@
 #include "serial.h"
 #include "ui_serial.h"
+#include "setting.h"
 
 serial::serial(QWidget *parent) :
     QMainWindow(parent),
@@ -142,4 +143,17 @@ void serial::on_clearTextButton_clicked()
     ui->recvTextEdit->clear();
     ui->recvTextEdit->moveCursor(QTextCursor::Start);
     ui->sendTextEdit->clear();
+}
+
+void serial::on_actionExit_triggered()
+{
+    QApplication* app;
+    app->exit(0);
+}
+
+void serial::on_openPortButton_3_clicked()
+{
+    setting param;
+    param.set_serial_core_obj(m_serial);
+    param.exec();
 }
