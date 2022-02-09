@@ -11,6 +11,7 @@ master分支有一个基础例程
 ![image](https://user-images.githubusercontent.com/11375905/150679901-634bf23f-f72e-437f-8525-732d4b99f4a3.png)
 
 # 功能介绍
+
 * 1) 接收显示框，默认一个比较淡的护眼色，现在还没确定
 * 2）发送数据框。
 * 3）串口设置
