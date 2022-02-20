@@ -11,7 +11,6 @@ Uartcore::Uartcore()
 QStringList Uartcore::scanSerial()
 {
     QStringList serialStrList;
-    qDebug()<<"scanSerial()";
     // 读取串口信息
     foreach(const QSerialPortInfo &info, QSerialPortInfo::availablePorts())
     {
@@ -19,17 +18,15 @@ QStringList Uartcore::scanSerial()
         // 判断端口能否以读写方式打开
         if(m_serialPort->open(QIODevice::ReadWrite))
         {
-            qDebug()<<"scanSerial()"<<m_serialPort->portName();
             serialStrList.append(m_serialPort->portName());
             m_serialPort->close(); // 然后自动关闭等待人为开启（通过"打开串口按钮"）
         }
     }
-    qDebug()<<"scanSerial() end!!!";
     return serialStrList;
 }
 
 // 打开串口
-bool Uartcore::open(QString serialName, int baudRate)
+bool Uartcore::open(QString serialName, int baudRate, int data_bit, int parity_bit, int stop_bit, int flow_control)
 {
     // 设置串口名
     m_serialPort->setPortName(serialName);
@@ -37,10 +34,10 @@ bool Uartcore::open(QString serialName, int baudRate)
     if(m_serialPort->open(QIODevice::ReadWrite))
     {
         m_serialPort->setBaudRate(baudRate); // 设置波特率(默认为115200)
-        m_serialPort->setDataBits( QSerialPort::Data8 ); // 设置数据位(数据位为8位)
-        m_serialPort->setParity( QSerialPort::NoParity ); // 设置校验位(无校验位)
-        m_serialPort->setStopBits( QSerialPort::OneStop ); // 设置停止位(停止位为1)
-        m_serialPort->setFlowControl( QSerialPort::NoFlowControl ); // 设置流控制(无数据流控制)
+        m_serialPort->setDataBits( /*QSerialPort::Data8*/(QSerialPort::DataBits)data_bit ); // 设置数据位(数据位为8位)
+        m_serialPort->setParity( /*QSerialPort::NoParity*/(QSerialPort::Parity)parity_bit ); // 设置校验位(无校验位)
+        m_serialPort->setStopBits( /*QSerialPort::OneStop*/(QSerialPort::StopBits)stop_bit ); // 设置停止位(停止位为1)
+        m_serialPort->setFlowControl( /*QSerialPort::NoFlowControl*/(QSerialPort::FlowControl)flow_control ); // 设置流控制(无数据流控制)
 
         // 当下位机中有数据发送过来时就会响应这个槽函数
         connect(m_serialPort, SIGNAL(readyRead()), this, SLOT(readData()));

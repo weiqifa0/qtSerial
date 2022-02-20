@@ -71,9 +71,19 @@ void serial::on_refreshButton_clicked()
 
 void serial::on_openPortButton_clicked()
 {
-    if(ui->openPortButton->text() == tr("Open Port"))
+    if (ui->portComboBox->currentText().isEmpty())
     {
-        if(m_serial->open(ui->portComboBox->currentText(), ui->baudComboBox->currentText().toInt()))
+        show_text(NO_SERIAL_PORT);
+        return;
+    }
+    if(serial_open == false)
+    {
+        if(m_serial->open(ui->portComboBox->currentText(),
+                          ui->baudComboBox->currentText().toInt(),
+                          m_serial->data_bits_,
+                          m_serial->parity_bits_,
+                          m_serial->stop_bits_,
+                          m_serial->flow_control_))
         {
             // 关闭下拉列表使能
             ui->portComboBox->setEnabled(false);
@@ -82,6 +92,8 @@ void serial::on_openPortButton_clicked()
             ui->openPortButton->setText(tr("Close Port"));
             connect_label->setText(tr("Port already opended"));
             connect_label->setStyleSheet("QLabel { color : green; }");
+
+            serial_open = true;
         }
     }
     else
@@ -95,6 +107,8 @@ void serial::on_openPortButton_clicked()
         ui->openPortButton->setText(tr("Open Port"));
         connect_label->setText(tr("Port already Closed"));
         connect_label->setStyleSheet("QLabel { color : black; }");
+
+        serial_open = false;
     }
 }
 
@@ -107,7 +121,7 @@ void serial::on_sendButton_clicked()
         sendData = m_serial->hexStringToByteArray(ui->sendTextEdit->toPlainText());
     }
 
-    if (sendData <= 0) {
+    if (sendData.length() <= 0) {
         ui->recvTextEdit->append(tr("Please Send Input Commands"));
         return;
     }
@@ -115,6 +129,11 @@ void serial::on_sendButton_clicked()
     tx_count += sendData.length();
     tx_label->setText("TX:"+QString::number(tx_count,10));
     m_serial->sendData(sendData);
+}
+
+void serial::show_text(const QString &text)
+{
+    ui->recvTextEdit->insertPlainText(text+"\n");
 }
 
 // 读取从自定义串口类获得的数据
@@ -153,7 +172,33 @@ void serial::on_actionExit_triggered()
 
 void serial::on_openPortButton_3_clicked()
 {
+    qDebug()<<"on_openPortButton_3_clicked() start";
     setting param;
     param.set_serial_core_obj(m_serial);
     param.exec();
+    qDebug()<<"on_openPortButton_3_clicked() set";
+
+    qDebug()<< "#serial_name_:" <<m_serial->serial_name_;
+    qDebug()<< "#baud_rate_:" <<m_serial->baud_rate_;
+    qDebug()<< "#data_bits_:" <<m_serial->data_bits_;
+    qDebug()<< "#parity_bits_:" <<m_serial->parity_bits_;
+    qDebug()<< "#stop_bits_:" <<m_serial->stop_bits_;
+    qDebug()<< "#flow_control_:" <<m_serial->flow_control_;
+
+    if(!m_serial->serial_name_.isEmpty())
+    {
+        ui->portComboBox->setCurrentText(m_serial->serial_name_);
+    }
+
+    if(m_serial->baud_rate_ > 0)
+    {
+        ui->baudComboBox->setCurrentText(QString::number(m_serial->baud_rate_)) ;
+    }
+
+    qDebug()<<"on_openPortButton_3_clicked() end";
+}
+
+void serial::on_portComboBox_activated(const QString &arg1)
+{
+    m_serial->serial_name_ = arg1;
 }

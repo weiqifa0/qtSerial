@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>391</width>
+    <width>508</width>
     <height>585</height>
    </rect>
   </property>
@@ -16,7 +16,7 @@
   <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">
     <rect>
-     <x>60</x>
+     <x>110</x>
      <y>510</y>
      <width>281</width>
      <height>71</height>
@@ -32,9 +32,9 @@
   <widget class="QComboBox" name="baudComboBox">
    <property name="geometry">
     <rect>
-     <x>180</x>
+     <x>220</x>
      <y>120</y>
-     <width>192</width>
+     <width>271</width>
      <height>57</height>
     </rect>
    </property>
@@ -98,9 +98,9 @@
   <widget class="QComboBox" name="bitComboBox">
    <property name="geometry">
     <rect>
-     <x>180</x>
+     <x>220</x>
      <y>190</y>
-     <width>192</width>
+     <width>271</width>
      <height>57</height>
     </rect>
    </property>
@@ -112,26 +112,31 @@
    </property>
    <item>
     <property name="text">
+     <string>5</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>6</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>7</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
      <string>8</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>9</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>10</string>
     </property>
    </item>
   </widget>
   <widget class="QComboBox" name="stopComboBox">
    <property name="geometry">
     <rect>
-     <x>180</x>
+     <x>220</x>
      <y>270</y>
-     <width>192</width>
+     <width>271</width>
      <height>57</height>
     </rect>
    </property>
@@ -146,13 +151,23 @@
      <string>1</string>
     </property>
    </item>
+   <item>
+    <property name="text">
+     <string>2</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>3</string>
+    </property>
+   </item>
   </widget>
   <widget class="QComboBox" name="parityComboBox">
    <property name="geometry">
     <rect>
-     <x>180</x>
+     <x>220</x>
      <y>340</y>
-     <width>192</width>
+     <width>271</width>
      <height>57</height>
     </rect>
    </property>
@@ -164,16 +179,36 @@
    </property>
    <item>
     <property name="text">
-     <string>None</string>
+     <string>0</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>2</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>3</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>4</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>5</string>
     </property>
    </item>
   </widget>
   <widget class="QComboBox" name="flowctrComboBox">
    <property name="geometry">
     <rect>
-     <x>180</x>
+     <x>220</x>
      <y>410</y>
-     <width>192</width>
+     <width>271</width>
      <height>57</height>
     </rect>
    </property>
@@ -185,16 +220,26 @@
    </property>
    <item>
     <property name="text">
-     <string>None</string>
+     <string>0</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>2</string>
     </property>
    </item>
   </widget>
   <widget class="QComboBox" name="comComboBox">
    <property name="geometry">
     <rect>
-     <x>180</x>
+     <x>220</x>
      <y>50</y>
-     <width>192</width>
+     <width>271</width>
      <height>57</height>
     </rect>
    </property>
@@ -215,7 +260,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>串口号</string>
+    <string>Port</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_2">
@@ -228,7 +273,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>波特率</string>
+    <string>Band Rate</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_3">
@@ -241,7 +286,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>数据位</string>
+    <string>Data Bits</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_4">
@@ -254,7 +299,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>停止位</string>
+    <string>Stop Bits</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_5">
@@ -262,12 +307,12 @@
     <rect>
      <x>30</x>
      <y>360</y>
-     <width>135</width>
+     <width>181</width>
      <height>30</height>
     </rect>
    </property>
    <property name="text">
-    <string>校验位</string>
+    <string>Parity Bits</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_6">
@@ -275,12 +320,12 @@
     <rect>
      <x>30</x>
      <y>430</y>
-     <width>135</width>
+     <width>181</width>
      <height>30</height>
     </rect>
    </property>
    <property name="text">
-    <string>流控</string>
+    <string>Flow Control</string>
    </property>
   </widget>
  </widget>
