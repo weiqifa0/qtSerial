@@ -9,8 +9,8 @@ master分支有一个基础例程
 
 # 软件界面图片
 更新了软件logo和界面
-![image](https://user-images.githubusercontent.com/11375905/154845673-d6c6f068-1f87-4389-be6b-67274ee8fe8a.png)
-![image](https://user-images.githubusercontent.com/11375905/154845685-c284799f-5985-49c2-b577-11cba848346b.png)
+![image](https://user-images.githubusercontent.com/11375905/154845786-1bead408-57b2-42cb-9dc8-998cc6ccdf25.png)
+
 ![image](https://user-images.githubusercontent.com/11375905/153223952-9a390adf-3e5d-4ad3-8e7f-471e2cbf86b2.png)
 
 
