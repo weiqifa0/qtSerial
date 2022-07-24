@@ -1,6 +1,9 @@
 # qtSerial
+【软件下载】
+https://github.com/weiqifa0/qtSerial/releases/tag/v1.1.1
 
 master分支有一个基础例程
+main 分支是软件的代码分支
 
 # QT软件和资料下载地址
 ```C
