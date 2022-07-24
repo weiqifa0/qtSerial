@@ -8,6 +8,9 @@ master分支有一个基础例程
 ```
 
 # 软件界面图片
+更新了软件logo和界面
+![image](https://user-images.githubusercontent.com/11375905/154845786-1bead408-57b2-42cb-9dc8-998cc6ccdf25.png)
+
 ![image](https://user-images.githubusercontent.com/11375905/153223952-9a390adf-3e5d-4ad3-8e7f-471e2cbf86b2.png)
 
 
