@@ -2,7 +2,7 @@
 #define SERIAL_H
 
 #include <QMainWindow>
-#include "uartcore.h"
+#include "uart_core.h"
 #include "qserialport.h"
 
 namespace Ui {
@@ -12,6 +12,8 @@ class serial;
 class serial : public QMainWindow
 {
     Q_OBJECT
+
+    #define NO_SERIAL_PORT tr("没有可以使用的串口")
 
 public:
     explicit serial(QWidget *parent = 0);
@@ -29,17 +31,18 @@ private slots:
     void on_portComboBox_activated(const QString &arg1);
 
 private:
-    Ui::serial *ui;
-    Uartcore *m_serial; // 自定义串口类对象指针
-    QLabel* rx_label;
-    QLabel* tx_label;
-    QLabel* connect_label;
-    qint64 rx_count = 0;
-    qint64 tx_count = 0;
-    bool serial_open = false;
     void show_text(const QString &text);
 
-    #define NO_SERIAL_PORT tr("没有可以使用的串口")
+private:
+    Ui::serial *ui;
+    Uartcore *uart_core_;
+    QLabel* rx_display_;
+    QLabel* tx_display_;
+    QLabel* connect_display_;
+    qint64 rx_quantity_ = 0;
+    qint64 tx_quantity_ = 0;
+    bool is_the_serial_port_open_ = false;
+
 };
 
 #endif // SERIAL_H

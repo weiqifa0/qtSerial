@@ -14,16 +14,18 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        serial.cpp \
-    uartcore.cpp \
-    setting.cpp
+    user_interaction.cpp \
+    uart_setting.cpp \
+    uart_core.cpp
 
-HEADERS  += serial.h \
-    uartcore.h \
-    setting.h
+HEADERS  += \
+    uart_core.h \
+    uart_setting.h \
+    uart_interaction.h
 
-FORMS    += serial.ui \
-    setting.ui
+FORMS    += \
+    uart_interface.ui \
+    uart_setting.ui
 
 TRANSLATIONS += \
     MySerial_zh_CN.ts

@@ -1,4 +1,4 @@
-#include "serial.h"
+#include "uart_interaction.h"
 #include <QApplication>
 #include <QTranslator>
 
@@ -11,7 +11,6 @@ int main(int argc, char *argv[])
 
     serial w;
     w.show();
-
 
     return a.exec();
 }
