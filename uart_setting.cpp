@@ -4,17 +4,13 @@
 
 setting::setting(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::setting)
-{
+    ui(new Ui::setting){
     ui->setupUi(this);
 
 }
 
-void setting::find_available_serial_ports_and_add(Uartcore* serial_core)
-{
+void setting::find_available_serial_ports_and_add(Uartcore* serial_core) {
     uart_core_ = serial_core;
-
-    // 寻找可用串口
     QStringList serialStrList;
     serialStrList = uart_core_->serial_port_scanning();
     for (int i=0; i<serialStrList.size(); i++){
@@ -22,13 +18,11 @@ void setting::find_available_serial_ports_and_add(Uartcore* serial_core)
     }
 }
 
-setting::~setting()
-{
+setting::~setting(){
     delete ui;
 }
 
-void setting::on_buttonBox_accepted()
-{
+void setting::on_buttonBox_accepted(){
     uart_core_->serial_name_ = ui->comComboBox->currentText();
     uart_core_->baud_rate_ = ui->baudComboBox->currentText().toInt();
     uart_core_->data_bits_ = ui->bitComboBox->currentText().toInt();
