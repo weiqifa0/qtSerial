@@ -113,7 +113,7 @@ void serial::on_sendButton_clicked(){
   }
 
   if (send_data.length() <= 0) {
-    ui->recvTextEdit->append(tr("Please Send Input Commands"));
+    ui->recvTextEdit->append(tr("No Input"));
     return;
   }
 
