@@ -36,14 +36,14 @@ void serial::status_bar_initialization(){
   rx_display_->setMinimumSize(300,20);
   rx_display_->setFrameShape(QFrame::NoFrame);
   rx_display_->setFrameShadow(QFrame::Plain);
-  rx_display_->setText(tr("RX: ")+"0");
+  rx_display_->setText(tr("RX")+": 0");
   rx_display_->setStyleSheet("QLabel { color : black; }");
 
   tx_display_ = new QLabel;
   tx_display_->setMinimumSize(300,20);
   tx_display_->setFrameShape(QFrame::NoFrame);
   tx_display_->setFrameShadow(QFrame::Plain);
-  tx_display_->setText((tr("TX: ") + "0"));
+  tx_display_->setText((tr("TX") + ": 0"));
   tx_display_->setStyleSheet("QLabel { color : black; }");
 
   connect_display_ = new QLabel;
@@ -82,6 +82,8 @@ void serial::on_openPortButton_clicked() {
       // 关闭下拉列表使能
       ui->portComboBox->setEnabled(false);
       ui->baudComboBox->setEnabled(false);
+      ui->refreshButton->setEnabled(false);
+      ui->openPortButton_3->setEnabled(false);
       // 修改按钮名称
       ui->openPortButton->setText(tr("Close Port"));
       connect_display_->setText(tr("Port already opended"));
@@ -95,6 +97,8 @@ void serial::on_openPortButton_clicked() {
     // 重新开启下拉列表使能
     ui->portComboBox->setEnabled(true);
     ui->baudComboBox->setEnabled(true);
+    ui->refreshButton->setEnabled(true);
+    ui->openPortButton_3->setEnabled(true);
     // 恢复按钮名称
     ui->openPortButton->setText(tr("Open Port"));
     connect_display_->setText(tr("Port already Closed"));
@@ -118,7 +122,7 @@ void serial::on_sendButton_clicked(){
   }
 
   tx_quantity_ += send_data.length();
-  tx_display_->setText("TX:"+QString::number(tx_quantity_,10));
+  tx_display_->setText(tr("TX")+": "+QString::number(tx_quantity_,10));
   uart_core_->send_data(send_data);
 }
 
@@ -139,7 +143,7 @@ void serial::readSerialData() {
     ui->recvTextEdit->insertPlainText(uart_core_->get_data_buffer_content());
   }
   rx_quantity_ += uart_core_->get_data_buffer_content().length();
-  rx_display_->setText("RX:"+QString::number(tx_quantity_,10));
+  rx_display_->setText(tr("RX")+": "+QString::number(tx_quantity_,10));
   //ui->recvTextEdit->moveCursor(QTextCursor::End); // 在末尾移动光标一格
   ui->recvTextEdit->insertPlainText("\n");
 
@@ -153,8 +157,8 @@ void serial::on_clearTextButton_clicked(){
 }
 
 void serial::on_actionExit_triggered(){
-  QApplication* app;
-  app->exit(0);
+//  QApplication* app;
+//  app->exit(0);
 }
 
 void serial::on_openPortButton_3_clicked(){
