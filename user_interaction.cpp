@@ -117,7 +117,7 @@ void serial::on_sendButton_clicked(){
   }
 
   if (send_data.length() <= 0) {
-    ui->recvTextEdit->append(tr("No Input"));
+    ui->recvBrowser->append(tr("No Input"));
     return;
   }
 
@@ -127,38 +127,35 @@ void serial::on_sendButton_clicked(){
 }
 
 void serial::show_text(const QString &text){
-    ui->recvTextEdit->insertPlainText(text+"\n");
+    ui->recvBrowser->insertPlainText(text+"\n");
 }
 
 // 读取从自定义串口类获得的数据
 void serial::readSerialData() {
-  QString originStr = ui->recvTextEdit->toPlainText();
-  ui->recvTextEdit->clear();
-  ui->recvTextEdit->setText(originStr);
-  ui->recvTextEdit->moveCursor(QTextCursor::End);
-
+  //ui->recvTextEdit->moveCursor(QTextCursor::End);
+  qDebug() << uart_core_->get_data_buffer_content().length();
+  qDebug() << uart_core_->get_data_buffer_content();
   if(ui->hexRecvCheckBox->checkState()){
-    ui->recvTextEdit->insertPlainText(uart_core_->get_data_buffer_content().toHex()); //转换成HEX
+    ui->recvBrowser->append(uart_core_->get_data_buffer_content().toHex());
   }else{
-    ui->recvTextEdit->insertPlainText(uart_core_->get_data_buffer_content());
+    ui->recvBrowser->append(uart_core_->get_data_buffer_content());
   }
   rx_quantity_ += uart_core_->get_data_buffer_content().length();
-  rx_display_->setText(tr("RX")+": "+QString::number(tx_quantity_,10));
-  //ui->recvTextEdit->moveCursor(QTextCursor::End); // 在末尾移动光标一格
-  ui->recvTextEdit->insertPlainText("\n");
+  rx_display_->setText(tr("RX")+": "+QString::number(rx_quantity_,10));
+  //ui->recvBrowser->moveCursor(QTextCursor::End); // 在末尾移动光标一格
 
   uart_core_->clear_data_buffer_content();
 }
 
 void serial::on_clearTextButton_clicked(){
-  ui->recvTextEdit->clear();
-  ui->recvTextEdit->moveCursor(QTextCursor::Start);
+  ui->recvBrowser->clear();
+  ui->recvBrowser->moveCursor(QTextCursor::Start);
   ui->sendTextEdit->clear();
 }
 
 void serial::on_actionExit_triggered(){
-//  QApplication* app;
-//  app->exit(0);
+  QApplication* app;
+  app->exit(0);
 }
 
 void serial::on_openPortButton_3_clicked(){
@@ -167,11 +164,11 @@ void serial::on_openPortButton_3_clicked(){
   param.exec();
 
   if(!uart_core_->serial_name_.isEmpty()){
-      ui->portComboBox->setCurrentText(uart_core_->serial_name_);
+    ui->portComboBox->setCurrentText(uart_core_->serial_name_);
   }
 
   if(uart_core_->baud_rate_ > 0){
-      ui->baudComboBox->setCurrentText(QString::number(uart_core_->baud_rate_)) ;
+    ui->baudComboBox->setCurrentText(QString::number(uart_core_->baud_rate_)) ;
   }
 }
 

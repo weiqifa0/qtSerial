@@ -28,6 +28,7 @@ bool Uartcore::open(QString serialName, int baudRate, int data_bit, int parity_b
     serial_port_->setParity((QSerialPort::Parity)parity_bit );
     serial_port_->setStopBits((QSerialPort::StopBits)stop_bit );
     serial_port_->setFlowControl((QSerialPort::FlowControl)flow_control );
+    serial_port_->setReadBufferSize(0);//設置緩衝區大小為無窮大
     connect(serial_port_, SIGNAL(readyRead()), this, SLOT(read_lower_computer_dataer_computer_dataer_computer_data()));
     connect(serial_port_, SIGNAL(readyRead()), this, SIGNAL(read_signal()));
     return true;
