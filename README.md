@@ -16,6 +16,9 @@ main 分支是软件的代码分支
 
 ![image](https://user-images.githubusercontent.com/11375905/153223952-9a390adf-3e5d-4ad3-8e7f-471e2cbf86b2.png)
 
+# 更新解决波特率设置成1500000阻塞UI的问题
+![image](https://github.com/weiqifa0/qtSerial/assets/11375905/861f7005-9cb3-44cf-b125-13d3281b7f4b)
+
 
 # 功能介绍
 
