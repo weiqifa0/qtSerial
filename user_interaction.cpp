@@ -24,6 +24,8 @@ serial::serial(QWidget *parent) :
   connect(uart_core_, SIGNAL(read_signal()), this, SLOT(readSerialData()));
 
   status_bar_initialization();
+
+  ui->recvBrowser->setStyleSheet("background-color: rgb(204, 232, 207);");
 }
 
 serial::~serial(){
@@ -110,19 +112,22 @@ void serial::on_openPortButton_clicked() {
 
 void serial::on_sendButton_clicked(){
   QByteArray send_data;
-  if(ui->hexSendCheckBox->checkState() == false){
-    send_data = ui->sendTextEdit->toPlainText().toLatin1();
-  }else{
-    send_data = uart_core_->hex_string_to_bytearray(ui->sendTextEdit->toPlainText());
+  send_data = ui->sendTextEdit->toPlainText().toLatin1();
+  if (ui->hexSendCheckBox->checkState()){
+    send_data = uart_core_->hex_string_to_bytearray(send_data);
+  }
+
+  if (ui->checkBox_5->checkState()) {
+    send_data += "\r\n";
   }
 
   if (send_data.length() <= 0) {
-    ui->recvBrowser->append(tr("No Input"));
+    ui->recvBrowser->append(tr("input error"));
     return;
   }
 
   tx_quantity_ += send_data.length();
-  tx_display_->setText(tr("TX")+": "+QString::number(tx_quantity_,10));
+  tx_display_->setText(tr("TX:")+QString::number(tx_quantity_,10));
   uart_core_->send_data(send_data);
 }
 
