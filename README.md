@@ -1,11 +1,14 @@
 # qtSerial
 【软件下载】
-https://github.com/weiqifa0/qtSerial/releases/tag/v1.1.1
+这个是最新的版本，功能目前比较简单，能够做到显示信息接收。
+https://github.com/weiqifa0/qtSerial/releases/tag/v1.1.4
+
 
 master分支有一个基础例程
 main 分支是软件的代码分支
 
 # QT软件和资料下载地址
+可以用下面的QT工具来编译这个项目，当然，有人想提交修改的也没问题。
 ```C
 软件和入门手册下载地址 链接：https://pan.baidu.com/s/1VvDjzhCNjPR8xcRHOUfYgg?pwd=9999 提取码：9999
 ```
