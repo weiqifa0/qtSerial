@@ -14,22 +14,26 @@ main 分支是软件的代码分支
 ```
 
 # 软件界面图片
-更新了软件logo和界面
+### 更新了软件logo和界面
 ![image](https://user-images.githubusercontent.com/11375905/154845786-1bead408-57b2-42cb-9dc8-998cc6ccdf25.png)
 
 ![image](https://user-images.githubusercontent.com/11375905/153223952-9a390adf-3e5d-4ad3-8e7f-471e2cbf86b2.png)
 
-# 更新解决波特率设置成1500000阻塞UI的问题
+### 更新解决波特率设置成1500000阻塞UI的问题
 ![image](https://github.com/weiqifa0/qtSerial/assets/11375905/861f7005-9cb3-44cf-b125-13d3281b7f4b)
 
+### 在ubuntu上编译的工具截图
+![image](https://github.com/weiqifa0/qtSerial/assets/11375905/49545f23-bfd0-405a-b41b-0a528bbaec02)
 
-# 功能介绍
 
-* 接收显示框，默认一个比较淡的护眼色，现在还没确定
-* 发送数据框。
-* 串口设置
-* 状态栏、串口连接、发送、接收数据显示
-* 日志dump到文件
-* 定时发送
-* 清空发送、接收框
-* 时间戳显示
+
+# 开发功能介绍
+
+* 接收显示框，默认一个比较淡的护眼色 —— 已完成
+* 发送数据框—— 已完成
+* 串口设置—— 已完成
+* 状态栏、串口连接、发送、接收数据显示—— 已完成
+* 日志dump到文件—— 未完成
+* 定时发送—— 未完成
+* 清空发送、接收框—— 已完成
+* 时间戳显示—— 已完成
