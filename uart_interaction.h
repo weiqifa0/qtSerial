@@ -13,7 +13,7 @@ class serial : public QMainWindow
 {
   Q_OBJECT
 
-  #define NO_SERIAL_PORT tr("没有可以使用的串口")
+  #define NO_SERIAL_PORT tr("No Available Serial Port")
 
 public:
   explicit serial(QWidget *parent = 0);

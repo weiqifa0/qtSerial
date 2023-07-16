@@ -76,7 +76,7 @@ QByteArray Uartcore::hex_string_to_bytearray(QString HexString)
       if(ok){
         data.append(c);
       } else {
-        QMessageBox::warning(nullptr, tr("Error："),
+        QMessageBox::warning(nullptr, tr("Error: "),
                              QString("非法的16进制字符: \"%1\"").arg(s));
       }
     }
