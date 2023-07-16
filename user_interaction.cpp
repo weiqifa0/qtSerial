@@ -159,7 +159,7 @@ void serial::on_clearTextButton_clicked(){
 }
 
 void serial::on_actionExit_triggered(){
-  QApplication* app;
+  QApplication* app = qApp;
   app->exit(0);
 }
 
