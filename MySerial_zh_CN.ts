@@ -9,6 +9,11 @@
         <oldsource>Error：</oldsource>
         <translation>错误: </translation>
     </message>
+    <message>
+        <location filename="uart_core.cpp" line="80"/>
+        <source>Illegal hex string:</source>
+        <translation>非法的16进制字符串:</translation>
+    </message>
 </context>
 <context>
     <name>serial</name>
