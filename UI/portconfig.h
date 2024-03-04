@@ -9,6 +9,7 @@
 #include <QLabel>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
+#include <QPushButton>
 class PortConfig : public QWidget
 {
     Q_OBJECT
@@ -17,15 +18,32 @@ public:
     QIcon getIcon();
 signals:
 private:
+
+    void createUIItems();
+    void doLayout();
+
     QGridLayout *m_layout;
     QGroupBox *m_portConfBox;
-    QLabel *m_PortNameLabel;
-    QComboBox *m_portNameBox;
-    QHBoxLayout *m_portNameLayout;
+
+//    QHBoxLayout *m_portNameLayout;
     QVBoxLayout *m_mainLayout;
 
-private:
+    QLabel *m_portNameLabel;
+    QLabel *m_baudRateLabel;
+    QLabel *m_dataBitsLabel;
+    QLabel *m_stopBitsLabel;
+    QLabel *m_parityBitsLabel;
+    QLabel *m_flowControlLabel;
 
+    QLabel *m_info;
+
+    QComboBox *m_portNameBox;
+    QComboBox *m_baudRate;
+    QComboBox *m_dataBits;
+    QComboBox *m_stopBits;
+    QComboBox *m_parityBits;
+    QComboBox *m_flowControl;
+    QPushButton *m_openClose;
 };
 
 #endif // PORTCONFIG_H
