@@ -54,13 +54,6 @@ void PortConfig::createUIItems()
     m_stopBitsLabel->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
     m_parityBitsLabel->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
     m_flowControlLabel->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
-
-//    m_portNameLabel->setAlignment(Qt::AlignRight);
-//    m_baudRateLabel->setAlignment(Qt::AlignRight);
-//    m_dataBitsLabel->setAlignment(Qt::AlignRight);
-//    m_stopBitsLabel->setAlignment(Qt::AlignRight);
-//    m_parityBitsLabel->setAlignment(Qt::AlignRight);
-//    m_flowControlLabel->setAlignment(Qt::AlignRight);
 }
 
 void PortConfig::doLayout()
@@ -69,7 +62,7 @@ void PortConfig::doLayout()
 
     m_portNameLabel->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
     m_portNameBox->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
-    m_portNameBox->setFixedWidth(200);
+    m_portNameBox->setFixedWidth(400);
 
 
 
@@ -89,11 +82,8 @@ void PortConfig::doLayout()
 
     m_layout->addWidget(m_openClose, 6, 0, 1, 1, Qt::AlignLeft);
 
-//    m_layout->setRowStretch(0,0);
-//    m_layout->setRowStretch(1,1);
     m_layout->setColumnStretch(0,0);
     m_layout->setColumnStretch(1,2);
-//    m_layout->setColumnStretch(2,2);
     m_portConfBox->setLayout(m_layout);
 
     m_mainLayout->addWidget(m_portConfBox, 0, Qt::AlignTop);
